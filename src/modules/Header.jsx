@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     fontSize: 20,
     [`@media (max-width:${600}px)`]: {
       fontSize: 15,
+      marginTop: "20%"
     }
   },
   hello: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'PT Serif',
     fontSize: 60,
     fontWeight: 700,
-    marginTop: 50
+    marginTop: 50,
   },
   aboutme: {
     fontSize: 40,
@@ -93,20 +94,6 @@ const useStyles = makeStyles(() => ({
     transform: "translateY(0)",
   },
 
-  imgQR: {
-    width: 200,
-    height: 200,
-    boxShadow: "5px 5px 8px 3px rgba(0, 0, 0, 0.4)",
-    transition: "width 200ms, height 200ms",
-    '&:hover': {
-      height: 230,
-      width: 230,
-    },
-    [`@media (max-width:${600}px)`]: {
-      height: 90,
-      width: 90,
-    }
-  },
   line: {
     width: 1,
     height: 200,
@@ -201,10 +188,8 @@ const Header = ({setSelectedNav,selectedNav}) => {
   const handleScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop) {
-      // Desplazamiento hacia abajo
       setIsNavVisible(false);
     } else if (scrollTop < lastScrollTop) {
-      // Desplazamiento hacia arriba
       setIsNavVisible(true);
     }
     setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);

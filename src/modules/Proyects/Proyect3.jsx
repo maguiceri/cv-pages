@@ -21,6 +21,9 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     width: 500,
     height: 300,
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
+    }
   },
   img: {
     width: 500,
@@ -39,6 +42,9 @@ const useStyles = makeStyles(() => ({
         marginTop: 0,
       marginLeft: 0,
       },
+    },
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
     }
   },
   colorImg: {
@@ -51,6 +57,9 @@ const useStyles = makeStyles(() => ({
     marginLeft: 0,
     backgroundColor: "#68ddbd",
     opacity: 0.3,
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
+    }
   },
   proyect: {
     alignItems: "flex-end",
@@ -66,13 +75,19 @@ const useStyles = makeStyles(() => ({
   featureProyect: {
     color: "#68ddbd",
     fontWeight: 400,
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
 
   titleProyect: {
     fontWeight: 700,
     fontSize: 25,
     opacity: 0.8,
-    color: "white"
+    color: "white",
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
   descriptionProyect: {
     backgroundColor: "#0C2E58",
@@ -82,13 +97,20 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     marginLeft: "-200px",
     zIndex: 4,
-    marginBottom: 15
+    marginBottom: 15,
+    [`@media (max-width:${800}px)`]: {
+      width: 250,
+      marginTop: 200
+    }
   },
   text: {
     fontSize: 13,
     fontWeight: 400,
     opacity: 0.5,
-    marginRight: 8
+    marginRight: 8,
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
 }))
 

@@ -123,8 +123,8 @@ const Body = () => {
   return (
     <div>
       <About />
-      <Proyects/>
-      <Experience/>
+       <Proyects/>
+       <Experience/>  
     </div>
   );
 };

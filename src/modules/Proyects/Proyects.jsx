@@ -9,8 +9,8 @@ const Proyects = () => {
   return (
     <>
       <Proyect1 />
-      <Proyect2 />
-      <Proyect3 />
+       <Proyect2 />
+       <Proyect3 /> 
     </>
   );
 };

@@ -18,6 +18,9 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignItems: "center",
         marginBottom: 40,
+        [`@media (max-width:${600}px)`]: {
+            fontSize: 18,
+        }
     },
     number: {
         color: "#68ddbd",
@@ -30,6 +33,9 @@ const useStyles = makeStyles(() => ({
         backgroundColor: "#68ddbd",
         marginLeft: 20,
         opacity: 0.5,
+        [`@media (max-width:${600}px)`]: {
+            width: 150
+        }
     },
     containerPresentation: {
         display: "flex",

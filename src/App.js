@@ -9,9 +9,9 @@ function App() {
   const [selectedNav, setSelectedNav] = useState(false);
 
   return (
-    <div style={{ margin: 0, backgroundColor: "#081130",  minHeight: "100vh", overflowX:"hidden"}}>
+    <div style={{ margin: 0, backgroundColor: "#081130", overflowX:"hidden"}}>
       <Header setSelectedNav={setSelectedNav} selectedNav={selectedNav} />
-      <Body setSelectedNav={setSelectedNav} />
+      <Body setSelectedNav={setSelectedNav} /> 
     </div>
   );
 }

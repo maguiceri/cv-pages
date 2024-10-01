@@ -28,6 +28,10 @@ const useStyles = makeStyles(() => ({
         color: "rgb(255, 255, 255, 0.5)",
         width: 550,
         marginRight: 15,
+        [`@media (max-width:${600}px)`]: {
+            width: 300,
+            fontSize: 15,
+        }
     },
     presentation: {
         fontWeight: 700,
@@ -35,7 +39,10 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignItems: "center",
         marginBottom: 40,
-        color: "white"
+        color: "white",
+        [`@media (max-width:${600}px)`]: {
+            fontSize: 18,
+        }
     },
     number: {
         color: "#68ddbd",
@@ -47,7 +54,10 @@ const useStyles = makeStyles(() => ({
         height: 1,
         backgroundColor: "#68ddbd",
         marginLeft: 20,
-        opacity: 0.5
+        opacity: 0.5,
+        [`@media (max-width:${600}px)`]: {
+            width: 150
+        }
     },
     containerProfile: {
         position: "relative",

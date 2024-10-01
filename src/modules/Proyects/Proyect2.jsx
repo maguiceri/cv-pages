@@ -23,11 +23,17 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     marginBottom: 40,
+    [`@media (max-width:${600}px)`]: {
+      fontSize: 18,
+  }
   },
   containerImg: {
     position: "relative",
     width: 500,
     height: 300,
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
+    }
   },
   img: {
     width: 500,
@@ -46,6 +52,9 @@ const useStyles = makeStyles(() => ({
         marginTop: 0,
       marginLeft: 0,
       },
+    },
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
     }
   },
   colorImg: {
@@ -57,7 +66,10 @@ const useStyles = makeStyles(() => ({
     marginTop: 0,
     marginLeft: 0,
     backgroundColor: "#68ddbd",
-    opacity: 0.3
+    opacity: 0.3,
+    [`@media (max-width:${600}px)`]: {
+      width: 300,
+    }
   },
 
   proyect: {
@@ -73,11 +85,17 @@ const useStyles = makeStyles(() => ({
   featureProyect: {
     color: "#68ddbd",
     fontWeight: 400,
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
   titleProyect: {
     fontWeight: 700,
     fontSize: 25,
-    color: "white"
+    color: "white",
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
   descriptionProyect: {
     color: "rgb(255, 255, 255, 0.7)",
@@ -88,13 +106,20 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     marginRight: "-200px",
     zIndex: 4,
-    marginBottom: 15
+    marginBottom: 15,
+    [`@media (max-width:${800}px)`]: {
+      width: 250,
+      marginTop: 150
+    }
   },
   text: {
     fontSize: 13,
     fontWeight: 400,
     opacity: 0.5,
-    marginRight: 8
+    marginRight: 8,
+    [`@media (max-width:${800}px)`]: {
+      display:"none"
+    }
   },
 }))
 
