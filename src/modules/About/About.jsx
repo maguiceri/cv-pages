@@ -27,7 +27,6 @@ const useStyles = makeStyles(() => ({
         fontSize: 18,
         color: "rgb(255, 255, 255, 0.5)",
         width: 550,
-        marginRight: 15,
         [`@media (max-width:${600}px)`]: {
             width: 300,
             fontSize: 15,
@@ -63,8 +62,10 @@ const useStyles = makeStyles(() => ({
         position: "relative",
         width: 300,
         height: 300,
-        [`@media (max-width:${800}px)`]: {
-            marginTop: 20
+        [`@media (max-width:${600}px)`]: {
+            marginTop: 20,
+            width: 250,
+            
           }
     },
     img: {

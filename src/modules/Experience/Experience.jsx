@@ -9,8 +9,8 @@ const useStyles = makeStyles(() => ({
         fontFamily: 'PT Serif',
         height: "100vh",
         flexDirection: "column",
-        alignItems:"center",
-        width:"90%"
+        alignItems: "center",
+        width: "90%"
     },
     presentation: {
         fontWeight: 700,
@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignItems: "center",
         marginBottom: 40,
-        [`@media (max-width:${600}px)`]: {
+        [`@media (max-width:600px)`]: {
             fontSize: 18,
         }
     },
@@ -33,13 +33,17 @@ const useStyles = makeStyles(() => ({
         backgroundColor: "#68ddbd",
         marginLeft: 20,
         opacity: 0.5,
-        [`@media (max-width:${600}px)`]: {
+        [`@media (max-width:600px)`]: {
             width: 150
         }
     },
     containerPresentation: {
         display: "flex",
         justifyContent: "center",
+        [`@media (max-width:600px)`]: {
+            flexDirection: "column",
+            textAlign:"center"
+        },
     },
     contentContainerNav: {
         display: "flex",
@@ -48,15 +52,33 @@ const useStyles = makeStyles(() => ({
     containerNav: {
         fontFamily: 'PT Serif',
         width: 200,
+        [`@media (max-width:600px)`]: {
+            display: "flex"
+        }
     },
     listNav: {
         listStyleType: "none",
-        borderLeft: "3px solid #0A173C",
         textAlign: "center",
         padding: "10px 5px",
+        cursor: 'pointer',
         '&:hover': {
             backgroundColor: "#0A173C",
         },
+        // Estilo predeterminado con `borderLeft`
+        borderLeft: "3px solid transparent", 
+        [`@media (max-width:600px)`]: {
+            // En pantallas pequeñas, cambia a `borderTop`
+            borderLeft: "none",
+            borderTop: "3px solid transparent",
+        }
+    },
+    listNavActive: {
+        borderLeft: "3px solid #68ddbd",
+        [`@media (max-width:600px)`]: {
+            borderLeft: "none",
+            borderTop: "3px solid #68ddbd",
+        },
+        color: "#68ddbd",
     },
     containerExperience: {
         position: "relative",
@@ -64,8 +86,7 @@ const useStyles = makeStyles(() => ({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-      
-        height: 300, 
+        height: 300,
     },
     cardExperience: {
         position: 'absolute',
@@ -99,65 +120,47 @@ const Experience = () => {
     };
 
     return (
-        <>
-            <div className={classes.containerAccordion} id="experience">
-                <div className={classes.presentation}>
-                    <span className={classes.number}>0.3</span> Experience
-                    <div className={classes.line}></div>
+        <div className={classes.containerAccordion} id="experience">
+            <div className={classes.presentation}>
+                <span className={classes.number}>0.3</span> Experience
+                <div className={classes.line}></div>
+            </div>
+            <div className={classes.containerPresentation}>
+                <div className={classes.contentContainerNav}>
+                    <ul className={classes.containerNav}>
+                        <li
+                            className={`${classes.listNav} ${selectedSection === 'santander' ? classes.listNavActive : ''}`}
+                            onClick={() => handleNavClick('santander')}
+                        >
+                            <a>Santander Technology Argentina</a>
+                        </li>
+                        <li
+                            className={`${classes.listNav} ${selectedSection === 'latventure' ? classes.listNavActive : ''}`}
+                            onClick={() => handleNavClick('latventure')}
+                        >
+                            <a>Latventure</a>
+                        </li>
+                    </ul>
                 </div>
-                <div className={classes.containerPresentation}>
-                    <div className={classes.contentContainerNav}>
-                        <ul className={classes.containerNav}>
-                            <li
-                                style={{ borderLeft: selectedSection === "santander" && "3px solid #68ddbd" }}
-                                className={classes.listNav}
-                                onClick={() => handleNavClick('santander')}
-                            >
-                                <a
-                                    style={{ color: selectedSection === "santander" && "#68ddbd" }}
-                                    className={classes.linkNav}
-                                >
-                                    Santander Technology Argentina
-                                </a>
-                            </li>
-                            <li
-                                style={{ borderLeft: selectedSection === "latventure" && "3px solid #68ddbd" }}
-                                className={classes.listNav}
-                                onClick={() => handleNavClick('latventure')}
-                            >
-                                <a
-                                    style={{ color: selectedSection === "latventure" && "#68ddbd" }}
-                                    className={classes.linkNav}
-                                >
-                                    Latventure
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div className={classes.containerExperience}>
-                        <div
-                            className={`${classes.cardExperience} ${selectedSection === "santander" ? classes.visible : ''}`}
-                        >
-                            <h3 className={classes.titleExperience}>Front End Developer</h3>
-                            <p className={classes.timeExperience}>Currently working.</p>
-                            <p className={classes.descriptionExperience}>
-                                I am in the front-end area, focusing on everything related to the benefits provided by the bank. I have worked on both projects from scratch and refactoring projects.
-                            </p>
-                        </div>
-                        <div
-                            className={`${classes.cardExperience} ${selectedSection === "latventure" ? classes.visible : ''}`}
-                        >
-                            <h3 className={classes.titleExperience}>Latventure</h3>
-                            <p className={classes.timeExperience}>2019-2020</p>
-                            <p className={classes.descriptionExperience}>
-                                Secretary, I perform organizational tasks, handle banking matters, invoices, Excel, and Outlook.
-                            </p>
-                        </div>
+                <div className={classes.containerExperience}>
+                    <div className={`${classes.cardExperience} ${selectedSection === "santander" ? classes.visible : ''}`}>
+                        <h3 className={classes.titleExperience}>Front End Developer</h3>
+                        <p className={classes.timeExperience}>Currently working.</p>
+                        <p className={classes.descriptionExperience}>
+                            I am in the front-end area, focusing on everything related to the benefits provided by the bank. I have worked on both projects from scratch and refactoring projects.
+                        </p>
+                    </div>
+                    <div className={`${classes.cardExperience} ${selectedSection === "latventure" ? classes.visible : ''}`}>
+                        <h3 className={classes.titleExperience}>Latventure</h3>
+                        <p className={classes.timeExperience}>2019-2020</p>
+                        <p className={classes.descriptionExperience}>
+                            Secretary, I perform organizational tasks, handle banking matters, invoices, Excel, and Outlook.
+                        </p>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
