@@ -150,7 +150,7 @@ const useStyles = makeStyles(() => ({
     postion: "fixed",
     zIndex: "99",
     backgroundColor: "#0C2E58",
-    width: "100vw",
+    width: "60vw",
     height: "100vh",
     position: "fixed",
     right: 0,
