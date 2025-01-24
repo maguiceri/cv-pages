@@ -4,6 +4,34 @@ import clsx from 'clsx';
 
 
 const useStyles = makeStyles(() => ({
+  iconG: {
+    fontSize: 25,
+    color: "white",
+    paddingBottom: 15,
+    opacity: 0.5,
+    transition: "transform 0.3s ease, color 0.3s ease",
+    '&:hover': {
+      color: "#68ddbd",
+      transform: "translateY(-5px)",
+    },
+    [`@media (max-width:600px)`]: {
+
+    },
+  },
+  iconL: {
+    fontSize: 25,
+    color: "white",
+    paddingBottom: 10,
+    opacity: 0.5,
+    transition: "transform 0.3s ease, color 0.3s ease",
+    '&:hover': {
+      color: "#68ddbd",
+      transform: "translateY(-5px)",
+    },
+    [`@media (max-width:600px)`]: {
+
+    },
+  },
   head: {
     fontFamily: 'PT Serif',
     color: "white",
@@ -51,7 +79,7 @@ const useStyles = makeStyles(() => ({
     position: "fixed",
     zIndex: 9,
     [`@media (max-width:${1020}px)`]: {
-      display:"none",
+      display: "none",
     }
   },
   iconsEmail: {
@@ -63,11 +91,12 @@ const useStyles = makeStyles(() => ({
     right: "5%",
     position: "fixed",
     zIndex: 9,
+    cursor: "pointer",
     '&:hover': {
       color: "#68ddbd",
     },
     [`@media (max-width:${1020}px)`]: {
-      display:"none",
+      display: "none",
     }
   },
   nav: {
@@ -78,7 +107,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     backdropFilter: "blur(10px)",
     width: "100%",
-    height: "60px", 
+    height: "60px",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
     backgroundColor: "rgba(10, 25, 47, 0.85)",
     boxShadow: "0 10px 30px -10px var(--navy-shadow)",
@@ -87,7 +116,7 @@ const useStyles = makeStyles(() => ({
     }
   },
   navHidden: {
-    transform: "translateY(-100%)", 
+    transform: "translateY(-100%)",
     boxShadow: "none",
   },
   navVisible: {
@@ -104,43 +133,45 @@ const useStyles = makeStyles(() => ({
     fontSize: 300
   },
   iconMenu: {
-    fontSize:40, 
-    color: "#68ddbd", 
-    paddingTop: 20, 
-    display:"none", 
-    justifyContent:"flex-end",
+    fontSize: 40,
+    color: "#68ddbd",
+    paddingTop: 20,
+    display: "none",
+    justifyContent: "flex-end",
     position: "fixed",
     zIndex: 99999999,
     width: "100%",
     backdropFilter: "blur(10px)",
     [`@media (max-width:${800}px)`]: {
-      display:"flex"
+      display: "flex"
     }
   },
   containerBarMenu: {
-    postion:"fixed", 
-    zIndex:"99", 
-    backgroundColor: "#0C2E58", 
-    width: 400, 
-    height: "100vh", 
-    position:"fixed", 
-    right: 0, 
-    display: "flex", 
-    justifyContent:"center", 
-    flexDirection:"column",
+    postion: "fixed",
+    zIndex: "99",
+    backgroundColor: "#0C2E58",
+    width: 400,
+    height: "100vh",
+    position: "fixed",
+    right: 0,
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
   },
   barMenu: {
-    display: "flex", 
-    flexDirection:"column", 
-    textAlign:"center",
-    justifyContent:"center",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    justifyContent: "center",
   },
   phill: {
     paddingRight: 20,
     textDecoration: "none",
     color: "white",
-    flexDirection:"column", 
-    padding:"20px 0px",
+    flexDirection: "column",
+    padding: "20px 0px",
+    backgroundColor: "rgba(10, 25, 47, 0)",
+    border: "none",
     '&:hover': {
       color: "#68ddbd",
     },
@@ -150,9 +181,9 @@ const useStyles = makeStyles(() => ({
     color: "#68ddbd",
     marginRight: 4,
   },
-  
+
   hidden: {
-    display:"none",
+    display: "none",
   },
   navItem: {
     display: "flex",
@@ -170,12 +201,20 @@ const useStyles = makeStyles(() => ({
 }))
 
 
-const Header = ({setSelectedNav,selectedNav}) => {
+const Header = ({ setSelectedNav, selectedNav }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCrossRotated, setIsCrossRotated] = useState(false);
-  const [isNavVisible, setIsNavVisible] = useState(true); 
-  const [lastScrollTop, setLastScrollTop] = useState(0); 
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
   const classes = useStyles();
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
 
 
 
@@ -221,27 +260,46 @@ const Header = ({setSelectedNav,selectedNav}) => {
   return (
     <div className={classes.head}>
       <div className={clsx(classes.nav, !isNavVisible && classes.navHidden, isNavVisible && classes.navVisible)}>
-        <a href="#about" className={classes.phill}><span className={classes.number}>0.1</span>About</a>
-        <a href="#proyects" className={classes.phill}><span className={classes.number}>0.2</span>Proyects</a>
-        <a href="#experience" className={classes.phill}><span className={classes.number}>0.3</span>Experience Academic</a>
-        <a href="#experience" className={classes.phill}><span className={classes.number}>0.4</span>Expetience</a>
+        <button onClick={() => scrollToSection("about")} className={classes.phill}>
+          <span className={classes.number}>0.1</span>About
+        </button>
+        <button onClick={() => scrollToSection("proyects")} className={classes.phill}>
+          <span className={classes.number}>0.2</span>Proyects
+        </button>
+        <button onClick={() => scrollToSection("experience")} className={classes.phill}>
+          <span className={classes.number}>0.3</span>Experience Academic
+        </button>
+        <button onClick={() => scrollToSection("experience")} className={classes.phill}>
+          <span className={classes.number}>0.4</span>Experience
+        </button>
       </div>
-      <div className={classes.iconMenu} onClick={handleNavMenu}><i style={{paddingRight:10}} class="fa fa-bars" aria-hidden="true"></i></div>
+      <div className={classes.iconMenu} onClick={handleNavMenu}><i style={{ paddingRight: 10 }} class="fa fa-bars" aria-hidden="true"></i></div>
       <div className={clsx(classes.containerBarMenu, !isMenuOpen && classes.hidden)}>
-      <div onClick={handleNavMenu} style={{ color: "#68ddbd", position:"absolute", top: 20, right: 20 }}><i class="fa fa-times" style={{fontSize : 30 }} aria-hidden="true"></i></div>
-        <div className={classes.barMenu}>
-          <a href="#about" className={classes.phill} ><span className={classes.number} style={{marginBottom:"5px"}}>0.1</span>About</a>
-          <a href="#proyects" className={classes.phill}><span className={classes.number} style={{marginBottom:"5px"}}>0.2</span>Proyects</a>
-          <a href="#experience" className={classes.phill}><span className={classes.number} style={{marginBottom:"5px"}}>0.3</span>Experience Academic</a>
-          <a href="#experience" className={classes.phill}><span className={classes.number} style={{marginBottom:"5px"}}>0.4</span>Expetience</a>
+        <div onClick={handleNavMenu} style={{ color: "#68ddbd", position: "absolute", top: 20, right: 20 }}>
+          <i className="fa fa-times" style={{ fontSize: 30 }} aria-hidden="true"></i>
         </div>
-      </div> 
+        <div className={classes.barMenu}>
+          <button onClick={() => { scrollToSection("about"); handleNavMenu(); }} className={classes.phill}>
+            <span className={classes.number} style={{ marginBottom: "5px" }}>0.1</span>About
+          </button>
+          <button onClick={() => { scrollToSection("proyects"); handleNavMenu(); }} className={classes.phill}>
+            <span className={classes.number} style={{ marginBottom: "5px" }}>0.2</span>Proyects
+          </button>
+          <button onClick={() => { scrollToSection("experience"); handleNavMenu(); }} className={classes.phill}>
+            <span className={classes.number} style={{ marginBottom: "5px" }}>0.3</span>Experience Academic
+          </button>
+          <button onClick={() => { scrollToSection("experience"); handleNavMenu(); }} className={classes.phill}>
+            <span className={classes.number} style={{ marginBottom: "5px" }}>0.4</span>Experience
+          </button>
+        </div>
+      </div>
+
       <div className={classes.icons}>
         <a href="https://github.com/maguiceri" class="icon">
-          <i style={{ color: "white", fontSize: 25, paddingBottom: 10, opacity: 0.5 }} class="fa fa-github" aria-hidden="true"></i>
+          <i className={clsx(classes.iconG, "fa fa-github")}  aria-hidden="true"></i>
         </a>
         <a href="https://www.linkedin.com/in/magali-cerisola-1a5111167" class="icon">
-          <i style={{ color: "white", fontSize: 25, paddingBottom: 10, opacity: 0.5 }} class="fa fa-linkedin " aria-hidden="true"></i>
+          <i className={clsx(classes.iconL, "fa fa-linkedin")}  aria-hidden="true"></i>
         </a>
         <div className={classes.line} ></div>
       </div>

@@ -10,7 +10,6 @@ const useStyles = makeStyles(() => ({
         height: "100vh",
         flexDirection: "column",
         alignItems: "center",
-        width: "90%"
     },
     presentation: {
         fontWeight: 700,
@@ -18,7 +17,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignItems: "center",
         marginBottom: 40,
-        [`@media (max-width:600px)`]: {
+        [`@media (max-width:800px)`]: {
             fontSize: 18,
         }
     },
@@ -33,14 +32,14 @@ const useStyles = makeStyles(() => ({
         backgroundColor: "#68ddbd",
         marginLeft: 20,
         opacity: 0.5,
-        [`@media (max-width:600px)`]: {
+        [`@media (max-width:800px)`]: {
             width: 150
         }
     },
     containerPresentation: {
         display: "flex",
         justifyContent: "center",
-        [`@media (max-width:600px)`]: {
+        [`@media (max-width:800px)`]: {
             flexDirection: "column",
             textAlign:"center"
         },
@@ -52,8 +51,10 @@ const useStyles = makeStyles(() => ({
     containerNav: {
         fontFamily: 'PT Serif',
         width: 200,
-        [`@media (max-width:600px)`]: {
-            display: "flex"
+        [`@media (max-width:800px)`]: {
+            display: "flex",
+            width: "unset",
+            padding: "0px 10px",
         }
     },
     listNav: {
@@ -64,17 +65,16 @@ const useStyles = makeStyles(() => ({
         '&:hover': {
             backgroundColor: "#0A173C",
         },
-        // Estilo predeterminado con `borderLeft`
+
         borderLeft: "3px solid transparent", 
-        [`@media (max-width:600px)`]: {
-            // En pantallas pequeñas, cambia a `borderTop`
+        [`@media (max-width:800px)`]: {
             borderLeft: "none",
-            borderTop: "3px solid transparent",
+            borderTop: "3px solid grey",
         }
     },
     listNavActive: {
         borderLeft: "3px solid #68ddbd",
-        [`@media (max-width:600px)`]: {
+        [`@media (max-width:800px)`]: {
             borderLeft: "none",
             borderTop: "3px solid #68ddbd",
         },
@@ -96,6 +96,10 @@ const useStyles = makeStyles(() => ({
         height: 300,
         opacity: 0,
         transition: 'opacity 0.3s ease-in-out',
+        [`@media (max-width:800px)`]: {
+            top: "unset",
+        left: "unset",
+        },
     },
     visible: {
         opacity: 1,
