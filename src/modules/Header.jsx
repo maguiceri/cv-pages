@@ -155,6 +155,7 @@ const useStyles = makeStyles(() => ({
     position: "fixed",
     right: 0,
     display: "flex",
+    alignItems:"center",
     justifyContent: "center",
     flexDirection: "column",
   },
