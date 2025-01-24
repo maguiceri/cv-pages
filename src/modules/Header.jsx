@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
   head: {
     fontFamily: 'PT Serif',
     color: "white",
-    backgroundColor: "#081130",
+    backgroundColor: "red",
     display: "flex",
     flexDirection: "column",
     height: "100vh",
